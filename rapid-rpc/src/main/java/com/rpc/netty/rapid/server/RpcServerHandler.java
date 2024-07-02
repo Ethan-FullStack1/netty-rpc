@@ -78,7 +78,7 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
 
         String methodName = rpcRequest.getMethodName();
         Class<?>[] parameterTypes = rpcRequest.getParameterTypes();
-        Objects[] parameters = rpcRequest.getParameters();
+        Object[] parameters = rpcRequest.getParameters();
 
         // JDK reflect
 

@@ -22,6 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
 
+    @Getter
     private Channel channel;
     @Getter
     private SocketAddress remotePeer;

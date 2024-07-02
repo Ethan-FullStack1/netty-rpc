@@ -34,8 +34,9 @@ public class RpcServer {
     private volatile Map<String,/* interface name */Object> handlerMap =
             new HashMap<>();
 
-    public RpcServer(String serverAddress) {
+    public RpcServer(String serverAddress) throws InterruptedException {
         this.serverAddress = serverAddress;
+        this.start();
     }
 
     private void start() throws InterruptedException {

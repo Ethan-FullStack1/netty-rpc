@@ -28,10 +28,10 @@ import java.util.concurrent.locks.ReentrantLock;
 @Slf4j
 public class RpcConnetManager {
 
-    private static volatile RpcConnetManager RPC_CONNET_MANAGER =
-            new RpcConnetManager();
+    // private static volatile RpcConnetManager RPC_CONNET_MANAGER =
+    //         new RpcConnetManager();
 
-    private RpcConnetManager() {
+    public RpcConnetManager() {
     }
 
     /**
@@ -63,9 +63,6 @@ public class RpcConnetManager {
 
     private volatile AtomicInteger handlerIdx = new AtomicInteger(0);
 
-    public static RpcConnetManager getInstance() {
-        return RPC_CONNET_MANAGER;
-    }
 
     // 1、异步链接 线程池 真正的发起链接，连接失败监听，链接成功监听
     // 2、对于连接进来的资源做一个缓存(做一个管理) updateConnectedServer
@@ -213,8 +210,9 @@ public class RpcConnetManager {
      */
     private void addHandler(RpcClientHandler handler) {
         connectedHandlerList.add(handler);
-        SocketAddress address = handler.getRemotePeer();
-        connectedHandlerMap.put(((InetSocketAddress) address), handler);
+        SocketAddress address = // handler.getRemotePeer();
+                handler.getChannel().remoteAddress();
+                connectedHandlerMap.put(((InetSocketAddress) address), handler);
 
         // signalAvailableHandler 唤醒可用的业务执行器
         signalAvailableHandler();

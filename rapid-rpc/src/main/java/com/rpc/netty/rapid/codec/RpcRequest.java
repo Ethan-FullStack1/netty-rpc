@@ -3,7 +3,6 @@ package com.rpc.netty.rapid.codec;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  * Rpc接口的请求定义
@@ -23,5 +22,5 @@ public class RpcRequest implements Serializable {
 
     private Class<?>[] parameterTypes;
 
-    private Objects[] parameters;
+    private Object[] parameters;
 }
