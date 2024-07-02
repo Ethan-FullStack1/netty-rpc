@@ -1,0 +1,18 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>root</groupId>
+    <version>1.0</version>
+    <modules>
+        <module>rapid-rpc</module>
+    </modules>
+    <artifactId>project</artifactId>
+    <packaging>pom</packaging>
+    <name>project</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+</project>
